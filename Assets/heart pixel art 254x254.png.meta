@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 796881dac52c70f4f9232b57998e8706
+guid: c1ec87ef3787c4a4cb347cd71649733d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1737518885037782023
-    second: gaming_tilemap_0
+      213: 7611919021688551150
+    second: heart pixel art 254x254_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gaming_tilemap_0
+      name: heart pixel art 254x254_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 1017
-        height: 769
+        width: 254
+        height: 254
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 3, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 704b53d5838ec1810800000000000000
-      internalID: 1737518885037782023
+      spriteID: ee6f8c24508f2a960800000000000000
+      internalID: 7611919021688551150
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f95c3538dd54b7e42938cb1520b15857
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gaming_tilemap_0: 1737518885037782023
+      heart pixel art 254x254_0: 7611919021688551150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
