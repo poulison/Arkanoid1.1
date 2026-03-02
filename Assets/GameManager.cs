@@ -1,9 +1,10 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{   
     public static GameManager instance;
 
     [Header("Game Settings")]
@@ -48,8 +49,8 @@ public class GameManager : MonoBehaviour
 
         if (lives == 0)
         {
-            Debug.Log("GAME OVER");
-            // depois vamos trocar para carregar cena de GameOver
+            PlayerPrefs.SetInt("LastScene", UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         }
     }
 
