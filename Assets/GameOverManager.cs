@@ -1,21 +1,26 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
-    // Chamado pelo botão YES
+    public TextMeshProUGUI finalScoreText;
+
+    void Start()
+    {
+        int finalScore = PlayerPrefs.GetInt("FinalScore", 1);
+        finalScoreText.text = "SCORE: " + finalScore.ToString("0000");
+    }
+
     public void PlayAgain()
     {
         int lastSceneIndex = PlayerPrefs.GetInt("LastScene", 1);
         SceneManager.LoadScene(lastSceneIndex);
     }
 
-    // Chamado pelo botão NO
     public void QuitGame()
     {
         Application.Quit();
-
-        // Isso aparece só no Editor (para testar)
         Debug.Log("Saiu do jogo");
     }
 }

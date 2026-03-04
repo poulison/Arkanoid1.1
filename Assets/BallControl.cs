@@ -9,13 +9,13 @@ public class BallControl : MonoBehaviour
     private bool canMove = false;
 
     [Header("Força Inicial")]
-    public float forceX = 8f;
-    public float forceY = 6f;
+    public float forceX = 5f;
+    public float forceY = 4f;
 
     [Header("Controle de Velocidade")]
-    public float minSpeed = 6f;
-    public float maxSpeed = 12f;
-    public float minAxisSpeed = 2.5f;
+    public float minSpeed = 4f;
+    public float maxSpeed = 7f;
+    public float minAxisSpeed = 1.8f;
 
     private Vector3 startPosition;
 
@@ -164,4 +164,18 @@ public class BallControl : MonoBehaviour
         audio.volume = 0.7f;
         audio.PlayOneShot(clip);
     }
+// ================= AUMENTO DE DIFICULDADE =================
+
+public float speedIncreaseStep = 0.2f;
+public float maxLimitSpeed = 18f;
+
+public void IncreaseSpeed()
+{
+    minSpeed += speedIncreaseStep;
+    maxSpeed += speedIncreaseStep;
+
+    // Limite máximo de segurança
+    minSpeed = Mathf.Min(minSpeed, maxLimitSpeed);
+    maxSpeed = Mathf.Min(maxSpeed, maxLimitSpeed);
+}
 }

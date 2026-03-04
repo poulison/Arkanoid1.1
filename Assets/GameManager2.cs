@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {   
-    public static GameManager instance;
+    public static GameManager2 instance;
 
     private int totalBricks;
 
@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        score = PlayerPrefs.GetInt("AccumulatedScore", 0);
         UpdateUI();
-        totalBricks = FindObjectsByType<Brick>(FindObjectsSortMode.None).Length;
+        totalBricks = FindObjectsByType<Brick2>(FindObjectsSortMode.None).Length;
     }
 
     public void AddScore(int amount)
@@ -81,20 +82,23 @@ public void BrickDestroyed()
 
     if (totalBricks <= 0)
     {
-        PlayerPrefs.SetInt("AccumulatedScore", score);
-        SceneManager.LoadScene("cena_2");
-        Invoke(nameof(LoadNextLevel), 1f);
+        PlayerPrefs.SetInt("FinalScore", score);
+        SceneManager.LoadScene("Win");
     }
 }
-
 void LoadNextLevel()
 {
     int currentIndex = SceneManager.GetActiveScene().buildIndex;
 
-    if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
-        SceneManager.LoadScene(currentIndex + 1);
+    if (currentIndex == 3) // se estiver na cena_2
+    {
+        PlayerPrefs.SetInt("FinalScore", score);
+        SceneManager.LoadScene("Win");
+    }
     else
-        SceneManager.LoadScene("Menu");
+    {
+        SceneManager.LoadScene(currentIndex + 1);
+    }
 }
 
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 14f;
 
     public Collider2D leftWall;
     public Collider2D rightWall;

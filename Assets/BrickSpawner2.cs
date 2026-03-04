@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BrickSpawner : MonoBehaviour
+public class BrickSpawner2 : MonoBehaviour
 {
     public GameObject brickPrefab;
     public Sprite[] brickSprites;
@@ -9,10 +9,12 @@ public class BrickSpawner : MonoBehaviour
     public Transform rightWall;
     public Transform topWall;
 
-    public int rows = 5;
-    public int columns = 10;
+    [Header("Tamanho do Losango")]
+    public int diamondHeight = 9;   // número total de linhas (ímpar fica melhor)
 
-    public float spacingY = 0.6f;
+    [Header("Espaçamento")]
+    public float spacingXMultiplier = 0.9f; // menor que 1 = menos espaço horizontal
+    public float spacingY = 0.5f;           // menor valor = menos espaço vertical
 
     void Start()
     {
@@ -30,13 +32,26 @@ public class BrickSpawner : MonoBehaviour
         float topLimit = topCol.bounds.min.y;
 
         float totalWidth = rightLimit - leftLimit;
-        float spacingX = totalWidth / columns;
 
-        for (int row = 0; row < rows; row++)
+        int maxColumns = diamondHeight; // largura baseada na altura
+        float spacingX = (totalWidth / maxColumns) * spacingXMultiplier;
+
+        int middle = diamondHeight / 2;
+
+        for (int row = 0; row < diamondHeight; row++)
         {
-            for (int col = 0; col < columns; col++)
+            int bricksInRow;
+
+            if (row <= middle)
+                bricksInRow = 1 + row * 2;
+            else
+                bricksInRow = 1 + (diamondHeight - row - 1) * 2;
+
+            float startX = leftLimit + (totalWidth - bricksInRow * spacingX) / 2f;
+
+            for (int col = 0; col < bricksInRow; col++)
             {
-                float posX = leftLimit + spacingX * col + spacingX / 2f;
+                float posX = startX + col * spacingX;
                 float posY = topLimit - 0.5f - row * spacingY;
 
                 Vector2 position = new Vector2(posX, posY);
@@ -45,7 +60,6 @@ public class BrickSpawner : MonoBehaviour
 
                 if (brickSprites.Length > 0)
                 {
-                    // 🔥 Agora cada fileira tem uma cor fixa
                     Sprite rowSprite = brickSprites[row % brickSprites.Length];
                     newBrick.GetComponent<SpriteRenderer>().sprite = rowSprite;
                 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6293285844027590261}
   - component: {fileID: 6304152808408551156}
   - component: {fileID: 8410645735516150960}
-  - component: {fileID: 6219939371283704111}
+  - component: {fileID: -4964015697668064413}
   m_Layer: 0
-  m_Name: Brick
+  m_Name: Brick2
   m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.64, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &6219939371283704111
+--- !u!114 &-4964015697668064413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,8 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 595474763676687618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2a2cd440a4ec24aa05e28d41bbf400, type: 3}
+  m_Script: {fileID: 11500000, guid: cdeaa0fd5a946bf4691ebf42bb72cfc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   points: 10
-  hitsToBreak: 1
+  hitsToBreak: 2
+  damagedSprite: {fileID: -4230145986516692180, guid: 037cf89a0b9ee404789dd8666f48729d, type: 3}
